@@ -1,6 +1,7 @@
 # Requires python3
 
 import pyautogui
+import sys
 import os
 
 # NOTE: Mac OS X Calculator squares seem to be 60x50 in pixel size (x=60, y=50)
@@ -9,7 +10,7 @@ left = -60
 up = -50
 down = 50
 
-# clicks a calculator button based off png name
+# FUNCTION: clicks a calculator button based off png name
 
 
 def clickBttnRetina(bttnName):
@@ -23,9 +24,10 @@ def clickBttnRetina(bttnName):
     pyautogui.click(xCor, yCor)
 
 
-# check if button is detected
+# FUNCTION: check if button is detected
 def checkBttnExistsRetina(bttnName):
-    os.chdir("/Users/cmaloney/Desktop/PythonProjects/automatedDrawBot-py/calcControl/calcPics")
+    os.chdir(
+        "/Users/cmaloney/Desktop/PythonProjects/automatedDrawBot-py/calcControl/calcPics")
     if pyautogui.locateCenterOnScreen(bttnName + '.png'):
         print(bttnName + " found")
         return True
@@ -33,7 +35,7 @@ def checkBttnExistsRetina(bttnName):
         return False
 
 
-# check if calculator value is 0, then reset calculator to 0 by clicking C/AC
+# FUNCTION: check if calculator value is 0, then reset calculator to 0 by clicking C/AC
 def resetCalc():
 
     # if value is not 0, reset
@@ -47,8 +49,7 @@ def resetCalc():
         return
 
 
-# add 2 + 2
-# Hardcoded actions
+# FUNCTION: Adds 2+2 with hardcoded fuctoinality
 def twoPlustwo():
     resetCalc()
     clickBttnRetina('calc2')
@@ -58,5 +59,7 @@ def twoPlustwo():
     print("Answer should be 4")
 
 
-resetCalc()
+# def readTerminal():
+
+
 twoPlustwo()
